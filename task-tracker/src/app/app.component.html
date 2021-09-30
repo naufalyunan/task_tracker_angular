@@ -1,4 +1,9 @@
 <div class="container">
-  <app-header (clicked)="clickedHeader()"></app-header>
-  <app-tasks></app-tasks>
+  <app-header 
+    color="{{ showAddTask? 'green': 'red' }}" 
+    text="{{ showAddTask? 'Close': 'Add Task' }}"
+    (clicked)="clickedHeader()"
+  ></app-header>
+  <router-outlet></router-outlet>
 </div>
+<app-footer></app-footer>

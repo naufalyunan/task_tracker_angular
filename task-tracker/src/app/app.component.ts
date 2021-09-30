@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UiService } from './services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-tracker';
+  showAddTask: boolean 
+  subscription: Subscription
+
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)
+  }
+
   clickedHeader() {
-    console.log('emit diterima')
+    this.uiService.toggleAddTask()
   }
 }

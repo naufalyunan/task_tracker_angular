@@ -1,4 +1,11 @@
-<header>
+<header
+    *ngIf="hasRoute('/')">
     <h2>Task Tracker</h2>
-    <button class="btn" (click)="onClick()">Open</button>
+    <button 
+        [ngStyle]="{'background-color': color}" 
+        class="btn" 
+        (click)="onClick()"
+    >
+        {{ text }}
+    </button>
 </header>
